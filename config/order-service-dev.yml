@@ -5,7 +5,7 @@ spring:
 # server:
 #  port: 8201
 
-rabbitmq:
+  rabbitmq:
     host: 192.168.247.1
     port: 5672
     username: admin
@@ -16,6 +16,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+  instance:
+    prefir-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
       
 feign:
   hystrix:
